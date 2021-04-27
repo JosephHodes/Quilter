@@ -26,4 +26,4 @@ Reoverlap the images with the difference and procedurally add the procedural inc
 Recursion with the new stitch that was generated applies the same algorithm to the newly developed image with another one in the dataset.
 
 # Part nine 
-Display the image,
+Display the image and save it.
