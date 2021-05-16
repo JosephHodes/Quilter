@@ -13,7 +13,8 @@ def stitch(images=images):
     grey2 = cv.cvtColor(images[1], cv.COLOR_RGB2GRAY)
     corners = cornerdetection(grey1)
     corners2 = cornerdetection(grey2)
-    plt.imshow(grey2), plt.plot(corners)
+    lw, lh = grey1.shape
+    offsetx = lw+lw * .90
 
 
 def cornerdetection(grey1):
@@ -21,8 +22,7 @@ def cornerdetection(grey1):
     corners = np.int0(corners)
     for i in corners:
         x, y = i.ravel()
-        cv.circle(grey1, (x, y), 3, 255, -1)
-        return (x, y)
+        cv.circle(grey1, (x, y), 20, 255, -1)
 
 
 stitch()
