@@ -17,9 +17,9 @@ def stitch(images=images):
     corners2 = cornerdetection(grey2, img2)
 
     lw, lh = grey1.shape
-    offsetx = int((lw * .90)+lw)
-    offsety = (lh * .90)+lh
-    newimage = np.zeros((lw*2, lh), np.uint8)
+    offsetx = int(lw-(lw * .90))
+    offsety = (lh * .10)+lh
+    newimage = np.zeros((lw*5, lh), np.uint8)
     newimage = cv.merge((newimage, newimage, newimage))
     newimage = cv.cvtColor(newimage, cv.COLOR_RGB2RGBA)
     corners[:, :, 3] = 200
@@ -27,7 +27,7 @@ def stitch(images=images):
 
     newimage[0: lw, 0: lh] = corners[0: lw, 0: lh]
     newimage[offsetx:lw+lw,
-             0: lh] = (newimage[offsetx:lw+lw, 0: lh] + corners2[:, :])/2
+             0: lh] = (newimage[offsetx:lw+lw, 0: lh] + corners2[0:lw, 0:lh])/2
     cv.imwrite("owo1.png", newimage)
 
 
